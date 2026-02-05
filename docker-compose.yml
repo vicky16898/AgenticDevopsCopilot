@@ -1,0 +1,16 @@
+
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant_devops_copilot
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./qdrant_data:/qdrant/storage:z
+    environment:
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    restart: always
+
+  # Future services (e.g. frontend, backend) can be added here
